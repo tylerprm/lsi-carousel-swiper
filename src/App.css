@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+@import 'swiper/swiper-bundle.css';
+
+:root {
+  --swiper-navigation-color: #ffffff;
+  --swiper-pagination-color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* General Document Styles */  
+ .app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+ }
+
+/* Carousel Styles */
+
+.carousel-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.App-link {
-  color: #61dafb;
+.swiper-container {
+  width: 600px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; /* To ensure slides outside of view are hidden */
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Slide Styles */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Pagination Styles */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  opacity: 0.7;
+  transition: opacity .3s;
+  display: none ;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #007BFF; /* Change this to whatever active color you prefer */
+}
+
+/* Navigation Arrows */
+
+.swiper-button-next, .swiper-button-prev {
+  width: 30px; /* Adjust as necessary */
+  height: 30px; /* Adjust as necessary */
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  color: #fff;
+  z-index: 100;
+}
+
+.swiper-button-next {
+  right: -15px; /* Adjust distance from the image edge */
+}
+
+.swiper-button-prev {
+  left: -15px; /* Adjust distance from the image edge */
+}
+
+/* Thumbs Styles */
+.thumbs-slider {
+  height: 100px;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.thumbs-slider .swiper-slide {
+  width: auto;
+  height: 80px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.thumbs-slider .swiper-slide-thumb-active,
+.thumbs-slider .swiper-slide-active {
+  opacity: 1; /* hide this for now */
+}
+
+.swiper-thumbs .swiper-slide iframe {
+  max-width: 150px;
+  pointer-events: none;
 }
